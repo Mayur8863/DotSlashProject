@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heal With Zeal</title>
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar">
+        <span class="navbar-toggle" id="js-navbar-toggle">
+          <img src="images/bar.png" alt="" />
+        </span>
+        <div id="logo">
+          <a href="#home">
+            <img src="images/logo.png" alt="MUACM." />
+          </a>
+        </div>
+        <ul class="main-nav" id="js-menu">
+          <li class="item">
+            <a class="nav-links" href="index.html">HOME</a>
+          </li>
+          <li class="item"><a href="planning.html">PLANNING</a></li>
+          <li class="item"><a href="#">BLOG</a></li>
+          <li class="item"><a href="news.html">NEWS</a></li>
+        </ul>
+    </nav>
+
+    <!-- content -->
+    <div id="Que">
+      <label for="Que">Question:- </label> 
+      <input type="text" id="blog-input">
+      <button onclick="changeFunc()">Post</button>
+    </div>
+    <div id="blog-content" ></div>
+    <script defer>
+      let mainNav = document.getElementById("js-menu");
+      let navBarToggle = document.getElementById("js-navbar-toggle");
+      navBarToggle.addEventListener("click", function () {
+        mainNav.classList.toggle("active");
+      });
+    
+      var i=1;
+      function changeFunc() {
+        let a = document.getElementById('blog-input').value;
+        document.getElementById('blog-input').value='';
+        var post = document.createElement('div');
+              post.id = `blog-${i}`;
+              post.className = `answers`;
+              document.getElementById('blog-content').appendChild(post);
+              document.getElementById(`blog-${i}`).innerHTML=`<p class="questions">${a}</p>
+              <input type="text" id="blog-${i}-input" placeholder="Answer">
+              <input type="password" id="blog-${i}-Unique-Id" placeholder="Unique-Id">
+              <button onclick="AnsFunc(this)" id="submit-${i}">Post</button>`;
+              i++;
+      }
+      function AnsFunc(obj) {
+        var ab = obj.id;
+          console.log(ab);
+          var element = document.getElementById(`${ab}`).parentNode.id;
+        if(document.getElementById(`${element}-ans`)){
+          return;
+        }
+        if(document.getElementById(`${element}-Unique-Id`).value!= 'QWERT'){
+          console.log(document.getElementById("Unique-Id").value);
+            return;
+        }
+        else{
+          var ans = document.createElement('p');
+          ans.id = `${element}-ans`;
+          ans.className = `ans`;
+          console.log(ans);
+          console.log(element);
+          let b = document.getElementById(`${element}-input`).value;
+          console.log(b);
+          document.getElementById(`${element}`).appendChild(ans);
+          document.getElementById(`${element}-ans`).innerHTML=`${b}`;
+          document.getElementById(`${ab}`).style="display:none;";
+          document.getElementById(`${element}-Unique-Id`).style="display:none;";
+          document.getElementById(`${element}-input`).style="display:none;";
+        }
+      }
+    </script>
+</body>
+
+</html>

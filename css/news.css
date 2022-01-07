@@ -1,0 +1,24 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#navbar{
+    position: relative;
+}
+.news-container{
+    margin: auto;
+    margin-top: 10px;
+    width: 800px;
+}
+.news-cards{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 1200px;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+}
+.news-cards .card{
+    margin: 40px;
+    border: 2px solid rgb(247, 173, 173);
+}
