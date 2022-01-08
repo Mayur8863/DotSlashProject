@@ -30,11 +30,16 @@
     </nav>
 
     <!-- content -->
-    <div id="Que">
-      <label for="Que">Question:- </label> 
-      <input type="text" id="blog-input">
-      <button onclick="changeFunc()">Post</button>
-    </div>
+    <!-- <div id="Que"> -->
+      <form action="https://formspree.io/f/mrgjbdnk" method="POST" id="Que">
+        <label for="Que">Question:- </label> 
+        <input id="email1" name="Email" type="email" id="blog-input">
+        <input  name="questions" type="text" id="blog-input" onchange="changeFunc()" >
+        <button type="submit" value="Send"  >Post</button>
+        <div id="status"></div>
+      </form>
+      <!-- <button onclick="changeFunc()">e</button> -->
+    <!-- </div> -->
     <div id="blog-content" ></div>
     <script defer>
       let mainNav = document.getElementById("js-menu");
@@ -42,19 +47,21 @@
       navBarToggle.addEventListener("click", function () {
         mainNav.classList.toggle("active");
       });
-    
+
       var i=1;
       function changeFunc() {
         let a = document.getElementById('blog-input').value;
+        console.log(a);
         document.getElementById('blog-input').value='';
         var post = document.createElement('div');
               post.id = `blog-${i}`;
               post.className = `answers`;
               document.getElementById('blog-content').appendChild(post);
-              document.getElementById(`blog-${i}`).innerHTML=`<p class="questions">${a}</p>
-              <input type="text" id="blog-${i}-input" placeholder="Answer">
-              <input type="password" id="blog-${i}-Unique-Id" placeholder="Unique-Id">
-              <button onclick="AnsFunc(this)" id="submit-${i}">Post</button>`;
+              document.getElementById(`blog-${i}`).innerHTML=`
+                <p class="questions">${a}</p>
+                <input name="ans" type="text" id="blog-${i}-input" placeholder="Answer">
+                <input type="password" id="blog-${i}-Unique-Id" placeholder="Unique-Id">
+                <button type="submit" onclick="AnsFunc(this)" id="submit-${i}">Post</button>`;
               i++;
       }
       function AnsFunc(obj) {
@@ -83,7 +90,10 @@
           document.getElementById(`${element}-input`).style="display:none;";
         }
       }
+    
+      
     </script>
+    <script src="blog.js"></script>
 </body>
 
 </html>

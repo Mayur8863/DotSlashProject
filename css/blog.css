@@ -53,3 +53,6 @@ button{
 .ans{
     margin: 10px 0px;
 }
+#email1{
+    width: 200px !important;
+}
