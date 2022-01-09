@@ -13,19 +13,20 @@
     position: fixed;
     top: 0px;
     width: 100%;
-    background-color: rgb(24, 240, 107);
+    /* background-color: rgb(24, 240, 107); */
+    background: rgb(2, 70, 64);
     justify-content: space-between;
     z-index: 2;
   }
   #navbar ul li a {
     position: relative;
-    font-family: 'Pacifico', cursive;
+    /* font-family: 'Pacifico', cursive; */
     color: white;
     letter-spacing: 1.5px;
     display: block;
     padding: 30px 15px;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 20px;
   }
   
   #navbar ul li a::after {
@@ -35,7 +36,7 @@
     width: 0%;
     left: 50%;
     height: 4px;
-    background: rgb(255, 255, 255);
+    background: #f44336;
     transition: 0.3s ease-out;
   }
   
