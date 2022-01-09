@@ -7,54 +7,91 @@
     <title>Heal With Zeal</title>
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/blog.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
-<body>
-    <!-- Navbar -->
-    <nav id="navbar">
-        <span class="navbar-toggle" id="js-navbar-toggle">
-          <img src="images/bar.png" alt="" />
-        </span>
-        <div id="logo">
-          <a href="#home">
-            <img src="images/logo.png" alt="MUACM." />
-          </a>
-        </div>
-        <ul class="main-nav" id="js-menu">
-          <li class="item">
-            <a class="nav-links" href="index.html">HOME</a>
-          </li>
-          <li class="item"><a href="planning.html">PLANNING</a></li>
-          <li class="item"><a href="#">BLOG</a></li>
-          <li class="item"><a href="news.html">NEWS</a></li>
-        </ul>
-    </nav>
+<style>
 
+body{
+  background-color: #d6d6d6;
+}
+
+h1{
+  text-align: center;
+ font-family: serif;
+ color: #035e47;
+ padding-top: 140px;
+
+}
+</style>
+<body>
+   
+  <nav id="navbar">
+    <span class="navbar-toggle" id="js-navbar-toggle">
+      <img src="images/bar.png" alt="" />
+    </span>
+    <div id="logo">
+      <a href="#home">
+        <img src="images/logo.png" alt="MUACM." />
+      </a>
+    </div>
+    <ul class="main-nav" id="js-menu">
+      <li class="item"><a href="index.html">Home</a></li>
+      <li class="item"><a href="aboutus.html">About Us</a></li>
+      <li class="item"><a href="blog.html">Blog</a></li>
+      <li class="item"><a href="news.html">News</a></li>
+    </ul>
+  </nav>
+<h1>Post Your Questions here :</h1>
     <!-- content -->
     <div id="Que">
-      <label for="Que">Question:- </label> 
-      <input type="text" id="blog-input">
-      <button onclick="changeFunc()">Post</button>
-    </div>
-    <div id="blog-content" ></div>
+      <!-- <form action="https://formspree.io/f/mrgjbdnk" method="POST" id="Que"> -->
+        <label for="Que">Question:- </label> 
+        <!-- <input id="email1" name="Email" type="email" id="blog-input"> -->
+        <input required  name="questions" type="text" id="blog-input" >
+        <!-- <button type="submit" value="Send"  >Post</button> -->
+        <button onclick="changeFunc()" type="submit" >Post</button>
+        
+        </form>
+      </div>
+      <div>
+          <div class="answers">
+            <p class="questions">Should I Go Gluten-Free?</p>
+            <p  class="ans">Only if you have celiac disease, when gluten (a protein in grains) damages your small intestine. Experts no longer think gluten causes rashes, stomachaches, or weight gain in people without the disease. It can’t hurt to skip gluten-rich foods like cookies and white bread. But don’t ditch whole grains unless your doctor says to. They fill you up and are full of healthy nutrients</p>
+          </div>
+          <div class="answers">
+            <p class="questions">Is a Daily Glass of Wine Healthy?</p>
+            <p  class="ans">Not for everyone. Small amounts of alcohol may stave off heart disease, and lower the odds of stroke and diabetes, too. But heavy drinking ups your chances for liver and heart damage, plus breast, colon, and other cancers. If you don’t drink, don’t start. If you do, limit yourself to one drink a day if you’re a woman, or two if you’re a man</p>
+          </div>
+      </div>
+
+      <div id="blog-content" >
+
+      </div>
     <script defer>
       let mainNav = document.getElementById("js-menu");
       let navBarToggle = document.getElementById("js-navbar-toggle");
       navBarToggle.addEventListener("click", function () {
         mainNav.classList.toggle("active");
       });
-    
+
       var i=1;
       function changeFunc() {
         let a = document.getElementById('blog-input').value;
+        console.log(a);
+        if(a==''){
+          return;
+        }
         document.getElementById('blog-input').value='';
         var post = document.createElement('div');
               post.id = `blog-${i}`;
               post.className = `answers`;
               document.getElementById('blog-content').appendChild(post);
-              document.getElementById(`blog-${i}`).innerHTML=`<p class="questions">${a}</p>
-              <input type="text" id="blog-${i}-input" placeholder="Answer">
-              <input type="password" id="blog-${i}-Unique-Id" placeholder="Unique-Id">
-              <button onclick="AnsFunc(this)" id="submit-${i}">Post</button>`;
+              document.getElementById(`blog-${i}`).innerHTML=`
+                <p class="questions">${a}</p>
+                <input name="ans" type="text" id="blog-${i}-input" placeholder="Answer">
+                <input type="password" id="blog-${i}-Unique-Id" placeholder="Unique-Id">
+                <button type="submit" onclick="AnsFunc(this)" id="submit-${i}">Post</button>`;
               i++;
       }
       function AnsFunc(obj) {
@@ -85,5 +122,4 @@
       }
     </script>
 </body>
-
 </html>

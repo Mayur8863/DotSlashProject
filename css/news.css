@@ -8,12 +8,12 @@
 .news-container{
     margin: auto;
     margin-top: 10px;
-    width: 800px;
+    width: 70vw;
 }
 .news-cards{
     display: grid;
     grid-template-columns: auto auto auto;
-    width: 1200px;
+    width: 100vw;
     margin: auto;
     text-align: center;
     justify-content: center;
@@ -21,4 +21,14 @@
 .news-cards .card{
     margin: 40px;
     border: 2px solid rgb(247, 173, 173);
+}
+@media screen and (max-width:1060px) {
+    .news-cards{
+        grid-template-columns: auto auto;
+    }
+}
+@media screen and (max-width:680px) {
+    .news-cards{
+        grid-template-columns: auto;
+    }
 }
